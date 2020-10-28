@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="controls">
+        <button id="reload" type="button">Reload</button>
+    </div>
+
+    <div class="event-log">
+        <label>Event log:</label>
+        <textarea class="event-log-contents" readyonly rows="8" cols="30"></textarea>
+    </div>
+    <script>
+        const log = document.querySelector('.event-log-contents');
+        const reload = document.querySelector('#reload');
+
+
+        reload.addEventListener('click', ()=>{
+            log.textContent = '';
+            window.setTimeout(()=>{
+                window.location.reload(true);
+            },600);
+        });
+        
+
+        /*
+            The load event is fired when the whole page has loaded, including all dependent 
+            resources such as stylesheets and images. This is in contrast to DOMContentLoaded, 
+            which is fired as soon as the page DOM has been loaded, without waiting for resources 
+            to finish loading.
+        */
+
+
+        window.addEventListener('load',(event)=>{
+            log.textContent = log.textContent + 'load\n';
+        });
+
+
+        /*
+        The readystatechange event is fired when the readyState attribute of a document has changed.
+        */
+
+
+        document.addEventListener('readystatechange',(event)=>{
+            log.textContent = log.textContent + `readystate: ${document.readyState}\n`;
+        });
+
+        document.addEventListener('DOMContentLoaded', (event)=>{
+            log.textContent = log.textContent + `DOMContentLoaded\n`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+Reference:
+https://medium.com/@digitaldaswani/scopes-in-javascript-cd3ddd5a17d1
