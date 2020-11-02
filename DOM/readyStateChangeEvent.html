@@ -25,7 +25,7 @@
                 window.location.reload(true);
             },600);
         });
-        
+
 
         /*
             The load event is fired when the whole page has loaded, including all dependent 
@@ -42,12 +42,36 @@
 
         /*
         The readystatechange event is fired when the readyState attribute of a document has changed.
+        
+        Loading
+        The document is still loading.
+
+        Interactive
+        The document has finished loading and the document has been parsed but sub-resources such 
+        as images, stylesheets and frames are still loading.
+        
+        Ccomplete
+        The document and all sub-resources have finished loading. The state indicates that the load
+        event is about to fire.
+
+
+        *** 'load' event vs readystate change event = the only difference is that the 
+        readystatechange event changes to complete right before the load event fires.
+        
         */
 
+        //check console to see the loading state
+        var thisReadyState = document.readyState;
+        console.log(thisReadyState);
 
         document.addEventListener('readystatechange',(event)=>{
             log.textContent = log.textContent + `readystate: ${document.readyState}\n`;
         });
+
+        /* The DOMContentLoaded event fires when the initial HTML document has
+         been completely loaded and parsed, without waiting for stylesheets, 
+         images, and subframes to finish loading.
+         */
 
         document.addEventListener('DOMContentLoaded', (event)=>{
             log.textContent = log.textContent + `DOMContentLoaded\n`;
