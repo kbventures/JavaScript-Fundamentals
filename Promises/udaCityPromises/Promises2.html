@@ -31,12 +31,14 @@
 
 		  return new Promise(function(resolve) {
 			  function checkState() {
-				console.log('Haha Moment');
+					console.log('loading');
 				  if (document.readyState !== 'loading') {
+					console.log('Haha Moment');
 				    resolve();
 				  }
 				}
 				document.addEventListener('readystatechange', checkState);
+				console.log('test');
 				checkState();
 		  });
 		};
