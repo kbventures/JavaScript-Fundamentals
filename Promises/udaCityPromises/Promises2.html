@@ -27,8 +27,11 @@
 		function ready() {
 			// Credit to Jake Archibald
 			// https://github.com/jakearchibald/svgomg/blob/master/src/js/page/utils.js#L7
+
+
 		  return new Promise(function(resolve) {
 			  function checkState() {
+				console.log('Haha Moment');
 				  if (document.readyState !== 'loading') {
 				    resolve();
 				  }
