@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="title">XMLHttpRequest</h2>
+    <p id="bottle"></p>
+</body>
+<script type="text/javascript">
+
+/*
+
+XML Http Requests(AJAX) allows you to send and receive data from
+external files within your Javascript code without refreshing the
+page or re-running your script.
+
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
+dcode:
+https://www.youtube.com/watch?v=rjmtYkRK1nM
+
+*/
+
+
+const xhr = new XMLHttpRequest();
+
+console.log(xhr.readyState);
+// 0
+
+/*
+
+0 Unsent
+1 Opened
+2 Head is received
+3 Loading
+4 Done
+
+*/
+
+
+// Event handler
+xhr.onreadystatechange = function () {
+    if(xhr.readyState == 4){
+        if (xhr.status == 200){
+            document.getElementById('bottle').textContent = xhr.responseText;
+        }
+
+        if (xhr.status = 400){
+            console.log('File or resource not found');
+        }
+    }
+};
+
+xhr.open('get', 'dom.txt', true);
+xhr.send();
+
+// Check xhr tab inside network tab in chrome dev tools 
+</script>
+
+</html>
