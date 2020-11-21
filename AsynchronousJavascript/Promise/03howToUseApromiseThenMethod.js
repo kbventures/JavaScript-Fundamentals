@@ -13,7 +13,9 @@ The then method takes 2 arguments: onFulfilled and onRejected
 Both of them are functions.  onFulfilled is called when the promises
 a sucessfully resolves and only has argument, the fulfillment value. 
 onRectec function will be called if the promises is rejected and only has one
-argument, the rejection reason.
+argument, the rejection reason.  In both cases they are called
+asynchronously. 
+
 
 
 
