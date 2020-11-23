@@ -58,7 +58,7 @@ async function inParallel2(){
     const promise1 = printNumber1();
     const promise2 = printNumber2();
 
-    console.log(await promise1, await promise2;
+    console.log(await promise1, await promise2);
 }
 
 inParallel2();
